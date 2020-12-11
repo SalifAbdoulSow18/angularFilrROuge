@@ -1,0 +1,42 @@
+{
+  "users": [
+    {
+      "email": "koroboto66@gmail.com",
+      "password": "$2a$10$sCJcUbuyalyyJUetnWohgOCTCGL26WQHvB2Z.rXIhpxTjIgbgamhO",
+      "id": 1
+    },
+    {
+      "email": "sdfgvbhn99@gmail.com",
+      "password": "$2a$10$s2qzknbe6guMRjoSUJp62eivjDHBuXowoz5rK.zxHD5AG9Ul4jiBG",
+      "id": 2
+    },
+    {
+      "email": "babacar1er@gmail.com",
+      "password": "$2a$10$51v/Hxt5RMXqZrsVzuy8ouuS6kla5/Fs4.0G8RdAar2Evdcd7WVxG",
+      "id": 3
+    },
+    {
+      "email": "saly88@gmail.com",
+      "password": "$2a$10$wL.J.1bfKsPVgEqGLvOTo.1Jb1oR214YMWdYkvRmJbU2AyIWmo9zW",
+      "id": 4
+    }
+  ],
+  "profils": [
+    {
+      "libelle": "Admin",
+      "id": 1
+    },
+    {
+      "libelle": "Cm",
+      "id": 2
+    },
+    {
+      "libelle": "Formateur",
+      "id": 3
+    },
+    {
+      "libelle": "Apprenant",
+      "id": 4
+    }
+  ]
+}
