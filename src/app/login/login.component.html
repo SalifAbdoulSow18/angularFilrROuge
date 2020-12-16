@@ -1,16 +1,25 @@
 <h1>{{title}}</h1>
 <div class="example-container">
+  <form [formGroup]="formLogin" (ngSubmit)= "onSubmit()">
   <mat-form-field appearance="fill">
     <mat-label>Entrez votre email</mat-label>
-    <input matInput>
+    <input matInput [(ngModel)]="email" formControlName="email" type="email" [ngClass]="{'is-invalid': submitted && f.email.errors }">
   </mat-form-field>
+  <div class="text-danger" *ngIf="submitted && f.email.errors">
+    <div *ngIf="f.email.errors.required">email is required</div>
+    <div *ngIf="f.email.errors.email">email n'est pas valide</div>
+  </div>
   <mat-form-field appearance="fill">
     <mat-label>Enter your password</mat-label>
-    <input matInput [type]="hide ? 'password' : 'text'">
+    <input matInput formControlName="password" [type]="hide ? 'password' : 'text'" [(ngModel)]="password" />
     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
     </button>
   </mat-form-field>
-    <button mat-button color="primary" (click)="
-    direBonjour()">connexion</button>
+  <div class="text-danger" *ngIf="submitted && f.password.errors">
+    <div *ngIf="f.password.errors.required">password is required</div>
+    <div *ngIf="f.password.errors.minlength">password n'est pas valide</div>
+  </div>
+    <button mat-button color="primary">connexion</button>
+  </form>
 </div>

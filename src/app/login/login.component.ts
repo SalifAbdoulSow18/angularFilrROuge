@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,11 +10,31 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
   title = 'Projet Fil Rouge Sonatel Academy';
   hide = true;
-  constructor() { }
+  email= "";
+  password= "";
+  formLogin:any = FormGroup;
+  submitted = false;
+  constructor(private authService: AuthService, private formBuilder: FormBuilder) { }
+    
+   
+  ngOnInit(): void {
+    this.formLogin = this.formBuilder.group({
+      email:['',[Validators.required, Validators.email]],
+      password:['',[Validators.required, Validators.minLength(6)]]
+    })
+  }
 
-  ngOnInit(): void {}
-    direBonjour(){
-      console.log("Bonjour");
+    get f(){
+      return this.formLogin.controls
+    }
+
+    onSubmit(){
+
+      //traitement
+      this.authService.login(this.email,this.password).subscribe(data => {
+        console.log(data)
+      },
+        err => console.log(err))
     }
 
 }

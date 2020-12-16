@@ -4,18 +4,27 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MaterialModule } from './material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewComponentComponent } from './new-component/new-component.component';
+import { AdminComponent } from './admin/admin.component';
+import { ApprenantComponent } from './apprenant/apprenant.component';
+import { FormateurComponent } from './formateur/formateur.component';
+import { CmComponent } from './cm/cm.component';
+import { TokenInterceptorInterceptor } from './token-interceptor.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    NewComponentComponent
+    NewComponentComponent,
+    AdminComponent,
+    ApprenantComponent,
+    FormateurComponent,
+    CmComponent
   ],
   imports: [
     BrowserModule,
@@ -24,9 +33,17 @@ import { NewComponentComponent } from './new-component/new-component.component';
     HttpClientModule,
     MaterialModule,
     FlexLayoutModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorInterceptor,
+      multi: true,
+    
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
