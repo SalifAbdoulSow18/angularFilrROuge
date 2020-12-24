@@ -1,0 +1,27 @@
+<button mat-raised-button color="primary" (click)="onCreate()">
+  <mat-icon>add</mat-icon>Create
+</button>
+<table mat-table [dataSource]="profils"  class="mat-elevation-z8">
+  <!-- Position Column -->
+  <ng-container  matColumnDef="id">
+    <th mat-header-cell bgcolor="#696969" style="font-size: large" *matHeaderCellDef> <strong>ID</strong> </th>
+    <td mat-cell bgcolor="#a9a9a9" *matCellDef="let profils"> {{profils.id}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="libelle">
+    <th mat-header-cell bgcolor="#696969" style="font-size: large" *matHeaderCellDef> <strong>LIBELLE</strong> </th>
+    <td mat-cell bgcolor="#a9a9a9"  *matCellDef="let profils"> {{profils.libelle}} </td>
+  </ng-container>
+
+  <!-- Status Column -->
+  <ng-container matColumnDef="status">
+    <th mat-header-cell bgcolor="#696969" style="font-size: large" *matHeaderCellDef> <strong>STATUS</strong> </th>
+    <td mat-cell bgcolor="#a9a9a9"  *matCellDef="let profils"> {{profils.status}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+

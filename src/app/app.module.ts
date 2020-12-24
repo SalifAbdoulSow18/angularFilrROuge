@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +15,11 @@ import { ApprenantComponent } from './apprenant/apprenant.component';
 import { FormateurComponent } from './formateur/formateur.component';
 import { CmComponent } from './cm/cm.component';
 import { TokenInterceptorInterceptor } from './token-interceptor.interceptor';
+import { ListeProfilsComponent } from './profilsGerer/liste-profils/liste-profils.component';
+import { AjouterProfilsComponent } from './profilsGerer/ajouter-profils/ajouter-profils.component';
+import { ListeUserComponent } from './liste-user/liste-user.component';
+import {VerificationGuard} from './verification.guard';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +29,10 @@ import { TokenInterceptorInterceptor } from './token-interceptor.interceptor';
     AdminComponent,
     ApprenantComponent,
     FormateurComponent,
-    CmComponent
+    CmComponent,
+    ListeProfilsComponent,
+    AjouterProfilsComponent,
+    ListeUserComponent
   ],
   imports: [
     BrowserModule,
@@ -37,13 +45,15 @@ import { TokenInterceptorInterceptor } from './token-interceptor.interceptor';
     ReactiveFormsModule,
   ],
   providers: [
+    VerificationGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorInterceptor,
       multi: true,
-    
+
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

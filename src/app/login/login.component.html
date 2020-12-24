@@ -3,7 +3,7 @@
   <form [formGroup]="formLogin" (ngSubmit)= "onSubmit()">
   <mat-form-field appearance="fill">
     <mat-label>Entrez votre email</mat-label>
-    <input matInput [(ngModel)]="email" formControlName="email" type="email" [ngClass]="{'is-invalid': submitted && f.email.errors }">
+    <input matInput [(ngModel)]="email" placeholder="pat@example.com" formControlName="email" type="email" [ngClass]="{'is-invalid': submitted && f.email.errors }">
   </mat-form-field>
   <div class="text-danger" *ngIf="submitted && f.email.errors">
     <div *ngIf="f.email.errors.required">email is required</div>

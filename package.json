@@ -24,6 +24,8 @@
     "@angular/platform-browser-dynamic": "~11.0.3",
     "@angular/router": "~11.0.3",
     "@auth0/angular-jwt": "^5.0.2",
+    "@types/connect": "^3.4.34",
+    "@types/express": "^4.17.9",
     "bootstrap": "^4.5.3",
     "faker": "^5.1.0",
     "font-awesome": "^4.7.0",

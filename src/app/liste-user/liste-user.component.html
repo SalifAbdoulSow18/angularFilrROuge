@@ -1,0 +1,46 @@
+<table mat-table [dataSource]="users"  class="mat-elevation-z8">
+  <!-- Position Column -->
+  <ng-container  matColumnDef="id">
+    <th mat-header-cell bgcolor="#696969" style="font-size: large" *matHeaderCellDef> <strong>ID</strong> </th>
+    <td mat-cell bgcolor="#a9a9a9" *matCellDef="let users"> {{users.id}} </td>
+  </ng-container>
+
+  <!-- Nom Column -->
+  <ng-container matColumnDef="nom">
+    <th mat-header-cell bgcolor="#696969" style="font-size: large, background-color" *matHeaderCellDef> <strong>NOM</strong> </th>
+    <td mat-cell bgcolor="#a9a9a9"  *matCellDef="let users"> {{users.nom}} </td>
+  </ng-container>
+
+  <!-- Prenom Column -->
+  <ng-container matColumnDef="prenom">
+    <th mat-header-cell bgcolor="#696969" style="font-size: large" *matHeaderCellDef> <strong>PRENOMS</strong> </th>
+    <td mat-cell bgcolor="#a9a9a9"  *matCellDef="let users"> {{users.prenom}} </td>
+  </ng-container>
+
+  <!-- Email Column -->
+  <ng-container matColumnDef="email">
+    <th mat-header-cell bgcolor="#696969" style="font-size: large" *matHeaderCellDef> <strong>EMAIL</strong> </th>
+    <td mat-cell bgcolor="#a9a9a9"  *matCellDef="let users"> {{users.email}} </td>
+  </ng-container>
+
+  <!-- Phone Column -->
+  <ng-container matColumnDef="phone">
+    <th mat-header-cell bgcolor="#696969" style="font-size: large" *matHeaderCellDef> <strong>PHONE</strong> </th>
+    <td mat-cell bgcolor="#a9a9a9"  *matCellDef="let users"> {{users.phone}} </td>
+  </ng-container>
+
+  <!-- Profil Column -->
+  <ng-container matColumnDef="profil">
+    <th mat-header-cell bgcolor="#696969" style="font-size: large" *matHeaderCellDef> <strong>PROFIL</strong> </th>
+    <td mat-cell bgcolor="#a9a9a9"  *matCellDef="let users"> {{users.profil}} </td>
+  </ng-container>
+
+  <!-- Status Column -->
+  <ng-container matColumnDef="status">
+    <th mat-header-cell bgcolor="#696969" style="font-size: large" *matHeaderCellDef> <strong>STATUS</strong> </th>
+    <td mat-cell bgcolor="#a9a9a9"  *matCellDef="let users"> {{users.status}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

@@ -1,0 +1,15 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div class="example-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Enter the libelle</mat-label>
+      <input matInput type="text" formControlName="libelle" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.libelle.errors }" />
+      <div *ngIf="submitted && f.libelle.errors" class="invalid-feedback">
+        <div *ngIf="f.libelle.errors.required">Libelle is required</div>
+      </div>
+      <mat-error></mat-error>
+    </mat-form-field>
+  </div>
+  <div class="text-center">
+    <button class="btn btn-primary mr-1">Enregistrer</button>
+  </div>
+</form>
