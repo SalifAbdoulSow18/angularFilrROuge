@@ -15,7 +15,7 @@ export class VerificationGuard implements CanActivate {
   // @ts-ignore
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): boolean {
+    state: RouterStateSnapshot) {
     const  token = localStorage.getItem('token');
     if (token) {
       return true;
